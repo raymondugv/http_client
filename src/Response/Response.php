@@ -4,7 +4,8 @@ namespace Httpful\Response;
 
 use Httpful\Exeption\JsonDecodeExeption;
 
-class Response {
+class Response
+{
 
     private $response;
     private $header;
@@ -17,18 +18,19 @@ class Response {
 
     public function getBody()
     {
-        if(strpos(strtolower(implode(', ', $this->getHeader())), 'application/json') !== false){
+        if (strpos(strtolower(implode(', ', $this->getHeader())), 'application/json') !== false) {
             $result = json_decode($this->response, true);
-        }
-        if(json_last_error() === JSON_ERROR_NONE){
-            return $result;
-        } else {
-            throw new JsonDecodeExeption('Error Decoding JSON:'.json_last_error());
+            if (json_last_error() === JSON_ERROR_NONE) {
+                return $result;
+            } else {
+                throw new JsonDecodeExeption('Error Decoding JSON:' . json_last_error());
+            }
         }
         return $this->response;
     }
 
-    public function getHeader(){
+    public function getHeader()
+    {
         return $this->header;
     }
 }

@@ -40,7 +40,7 @@ function sendAssessment()
         [
             'name' => 'Hoanh Le Kien',
             'email' => 'lkhoanh@cmcglobal.vn',
-            'url' => 'https://github.com/raymondugv/http-client',
+            'url' => 'https://github.com/raymondugv/http_client',
         ],
         [
             'Authorization' => 'Bearer ' . $tokenResponse->getBody(),

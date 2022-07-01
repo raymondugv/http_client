@@ -34,7 +34,7 @@ class RequestAPI
     public static function options($url, $body = null, $header = [])
     {
 
-        return HttpClient::send('OPTION', $url, $body, $header);
+        return HttpClient::send('OPTIONS', $url, $body, $header);
     }
 
 }

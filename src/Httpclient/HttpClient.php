@@ -14,6 +14,7 @@ class HttpClient
 
         $context = stream_context_create($option);
         $result = file_get_contents($url, false, $context);
+
         if ($result == false) {
             $status_line = implode(',', $http_response_header);
             preg_match('{HTTP\/\S*\s(\d{3})}', $status_line, $match);
